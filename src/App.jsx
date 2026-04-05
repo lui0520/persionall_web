@@ -4,23 +4,19 @@ import './index.css'
 import ParticleCanvas from './components/ParticleCanvas'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
-import Experience from './components/Experience'
-import Performance from './components/Performance'
+import AboutPage from './pages/AboutPage'
+import ServicesPage from './pages/ServicesPage'
+import HighlightsPage from './pages/HighlightsPage'
 import Creations from './components/Creations'
-import ShowList from './components/ShowList'
-import Teaching from './components/Teaching'
 import Contact from './components/Contact'
 
 const pages = {
-  hero:        Hero,
-  about:       About,
-  experience:  Experience,
-  performance: Performance,
-  creations:   Creations,
-  shows:       ShowList,
-  teaching:    Teaching,
-  contact:     Contact,
+  hero:       Hero,
+  about:      AboutPage,      // 關於彈彈（含 魔術師介紹 / 合作品牌）
+  services:   ServicesPage,   // 服務項目（含所有服務子項）
+  highlights: HighlightsPage, // 花絮 & 足跡（含 花絮 / 足跡）
+  creations:  Creations,      // 合作創作
+  contact:    Contact,        // 聯繫彈彈
 }
 
 export default function App() {
