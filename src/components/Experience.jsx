@@ -29,21 +29,21 @@ function TimelineItem({ event }) {
         <motion.div
           initial={{ scale: 0 }} animate={inView ? { scale: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="w-3 h-3 rounded-full bg-[#c9a94b] shadow-[0_0_16px_rgba(201,169,75,0.7)] mt-1.5 shrink-0" />
-        <div className="w-px flex-1 bg-gradient-to-b from-[#c9a94b]/50 to-transparent mt-2" />
+          className="w-3 h-3 rounded-full bg-[#1a1a1a] shadow-[0_0_8px_rgba(0,0,0,0.2)] mt-1.5 shrink-0" />
+        <div className="w-px flex-1 bg-gradient-to-b from-black/30 to-transparent mt-2" />
       </div>
 
       {/* Card */}
       <div className="flex-1 min-w-0 pb-12">
-        <span className="font-cinzel text-[#c9a94b] font-bold text-sm tracking-widest mb-3 block">
+        <span className="font-cinzel text-[#374151] font-bold text-sm tracking-widest mb-3 block">
           {event.year}
         </span>
 
-        <div className="glass-card border-[#c9a94b]/22 overflow-hidden hover:border-[#c9a94b]/50 transition-all duration-500">
+        <div className="glass-card border-black/10 overflow-hidden hover:border-black/25 transition-all duration-500">
 
           {/* Carousel top */}
           <div className="relative">
-            <div className="absolute -inset-[1px] border border-[#c9a94b]/18 pointer-events-none z-10" />
+            <div className="absolute -inset-[1px] border border-black/8 pointer-events-none z-10" />
             <PhotoCarousel images={event.images} aspect="aspect-video" interval={3000} />
           </div>
 
@@ -51,22 +51,22 @@ function TimelineItem({ event }) {
           <div className="p-6 md:p-8">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
               <div>
-                <h3 className="font-cinzel font-bold text-white tracking-wider mb-1"
+                <h3 className="font-cinzel font-bold text-[#1a1a1a] tracking-wider mb-1"
                   style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)' }}>
                   {event.title}
                 </h3>
-                <p className="font-cormorant text-white/55 text-xl italic leading-tight">{event.titleZh}</p>
+                <p className="font-cormorant text-[#1a1a1a]/55 text-xl italic leading-tight">{event.titleZh}</p>
               </div>
               <div className="flex flex-wrap gap-2 shrink-0">
                 {event.tags.map(t => (
-                  <span key={t} className="font-cinzel text-[9px] tracking-widest uppercase px-2.5 py-1 border border-[#c9a94b]/30 text-[#c9a94b]/75">
+                  <span key={t} className="font-cinzel text-[9px] tracking-widest uppercase px-2.5 py-1 border border-black/18 text-[#374151]/75">
                     {t}
                   </span>
                 ))}
               </div>
             </div>
-            <p className="font-cinzel text-[#c9a94b]/65 text-[10px] tracking-widest uppercase mb-3">{event.role}</p>
-            <p className="text-white/75 text-[15px] leading-relaxed">{event.desc}</p>
+            <p className="font-cinzel text-[#374151]/65 text-[10px] tracking-widest uppercase mb-3">{event.role}</p>
+            <p className="text-[#1a1a1a]/75 text-[15px] leading-relaxed">{event.desc}</p>
           </div>
         </div>
       </div>

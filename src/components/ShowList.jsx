@@ -15,9 +15,9 @@ const shows = [
 ]
 
 const typeColor = {
-  '搭配音樂': 'text-violet-300 border-violet-300/35',
-  '觀眾互動': 'text-emerald-300 border-emerald-300/35',
-  '親子互動': 'text-sky-300 border-sky-300/35',
+  '搭配音樂': 'text-violet-600 border-violet-600/35',
+  '觀眾互動': 'text-emerald-600 border-emerald-600/35',
+  '親子互動': 'text-sky-600 border-sky-600/35',
 }
 
 function ShowCard({ show, index }) {
@@ -41,11 +41,11 @@ function ShowCard({ show, index }) {
       >
         {/* Front */}
         <div className={`absolute inset-0 glass-card overflow-hidden flex flex-col ${
-            show.highlight ? 'border-[#c9a94b]/40' : 'border-[#c9a94b]/22'
+            show.highlight ? 'border-black/20' : 'border-black/10'
           }`}
           style={{ backfaceVisibility:'hidden' }}>
           <div className="h-32 overflow-hidden shrink-0">
-            <img src={`/images/web/${show.image}`} alt=""
+            <img src={`${import.meta.env.BASE_URL}images/web/${show.image}`} alt=""
               className="w-full h-full object-cover img-hover"
               style={{ filter:'brightness(0.78) contrast(1.06)' }} />
           </div>
@@ -54,18 +54,18 @@ function ShowCard({ show, index }) {
               <span className={`font-cinzel text-[8px] tracking-widest uppercase border px-1.5 py-0.5 ${typeColor[show.type]}`}>
                 {show.type}
               </span>
-              <h3 className="font-cinzel font-bold text-white text-sm tracking-wider mt-2 mb-0.5">{show.title}</h3>
-              <p className="text-white/45 text-[11px] tracking-wide">{show.en}</p>
+              <h3 className="font-cinzel font-bold text-[#1a1a1a] text-sm tracking-wider mt-2 mb-0.5">{show.title}</h3>
+              <p className="text-[#1a1a1a]/45 text-[11px] tracking-wide">{show.en}</p>
             </div>
-            <p className="font-cinzel text-[8px] text-[#c9a94b]/45 mt-3 tracking-widest">點擊查看 →</p>
+            <p className="font-cinzel text-[8px] text-[#374151]/45 mt-3 tracking-widest">點擊查看 →</p>
           </div>
         </div>
         {/* Back */}
-        <div className="absolute inset-0 glass-card p-5 flex flex-col justify-center bg-[#c9a94b]/8 border-[#c9a94b]/38"
+        <div className="absolute inset-0 glass-card p-5 flex flex-col justify-center bg-black/4 border-black/20"
           style={{ backfaceVisibility:'hidden', transform:'rotateY(180deg)' }}>
-          <h3 className="font-cinzel font-bold text-white text-sm tracking-wider mb-3">{show.title}</h3>
-          <p className="text-white/80 text-[15px] leading-relaxed">{show.desc}</p>
-          <p className="font-cinzel text-[8px] text-[#c9a94b]/45 mt-4 tracking-widest">再次點擊收起 ←</p>
+          <h3 className="font-cinzel font-bold text-[#1a1a1a] text-sm tracking-wider mb-3">{show.title}</h3>
+          <p className="text-[#1a1a1a]/80 text-[15px] leading-relaxed">{show.desc}</p>
+          <p className="font-cinzel text-[8px] text-[#374151]/45 mt-4 tracking-widest">再次點擊收起 ←</p>
         </div>
       </motion.div>
     </motion.div>
@@ -90,22 +90,22 @@ export default function ShowList() {
           <div className="gold-divider" />
           <motion.p initial={{ opacity:0 }} animate={inView?{opacity:1}:{}}
             transition={{ duration:0.8, delay:0.3 }}
-            className="font-cinzel text-white/40 text-[9px] tracking-[0.35em] mt-5 uppercase">
+            className="font-cinzel text-[#1a1a1a]/40 text-[9px] tracking-[0.35em] mt-5 uppercase">
             Click any card to reveal details
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-[#c9a94b]/15">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-[#e5e7eb]">
           {shows.map((show, i) => <ShowCard key={show.id} show={show} index={i} />)}
         </div>
 
         <motion.div initial={{ opacity:0, y:18 }} whileInView={{ opacity:1, y:0 }}
           viewport={{ once:true }} transition={{ duration:0.8 }}
-          className="mt-px glass-card border-[#c9a94b]/22 p-6 text-center">
+          className="mt-px glass-card border-black/10 p-6 text-center">
           <span className="section-label block mb-3">Upgrade Customization</span>
-          <p className="text-white/65 text-[15px]">
+          <p className="text-[#1a1a1a]/65 text-[15px]">
             Chair Suspension · 不可能的巧合 · 鈔票大獎 · 香檳BANG ——
-            <span className="text-[#c9a94b]"> 特殊需求請洽詢</span>
+            <span className="text-[#374151]"> 特殊需求請洽詢</span>
           </p>
         </motion.div>
 

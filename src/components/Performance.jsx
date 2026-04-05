@@ -25,19 +25,19 @@ function CategoryCard({ cat, index }) {
       initial={{ opacity: 0, y: 36 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16,1,0.3,1] }}
-      className="glass-card border-[#c9a94b]/22 overflow-hidden hover:border-[#c9a94b]/50 transition-all duration-500"
+      className="glass-card border-black/10 overflow-hidden hover:border-black/25 transition-all duration-500"
     >
       {/* Carousel */}
       <PhotoCarousel images={cat.images} aspect="aspect-video" interval={3200 + index * 200} />
 
       <div className="p-7">
         <div className="text-2xl mb-4">{cat.icon}</div>
-        <h3 className="font-cinzel font-bold text-white text-sm tracking-[0.15em] uppercase mb-1">{cat.title}</h3>
-        <p className="font-cormorant text-[#c9a94b] text-xl italic mb-5 leading-tight">{cat.titleZh}</p>
+        <h3 className="font-cinzel font-bold text-[#1a1a1a] text-sm tracking-[0.15em] uppercase mb-1">{cat.title}</h3>
+        <p className="font-cormorant text-[#374151] text-xl italic mb-5 leading-tight">{cat.titleZh}</p>
         <ul className="space-y-2.5">
           {cat.items.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-white/75 text-[15px] leading-snug">
-              <span className="text-[#c9a94b]/50 mt-1 shrink-0 text-xs">◆</span>
+            <li key={i} className="flex items-start gap-3 text-[#1a1a1a]/75 text-[15px] leading-snug">
+              <span className="text-[#374151]/50 mt-1 shrink-0 text-xs">◆</span>
               <span>{item}</span>
             </li>
           ))}
@@ -66,14 +66,14 @@ export default function Performance() {
           <div className="gold-divider" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#c9a94b]/15">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e5e7eb]">
           {categories.map((cat, i) => <CategoryCard key={i} cat={cat} index={i} />)}
         </div>
 
         {/* Awards */}
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.8 }}
-          className="mt-px glass-card border-[#c9a94b]/28 p-10 text-center">
+          className="mt-px glass-card border-black/10 p-10 text-center">
           <span className="section-label block mb-8">Awards & Milestones</span>
           <div className="flex flex-wrap justify-center gap-12 md:gap-20">
             {[
@@ -83,8 +83,8 @@ export default function Performance() {
             ].map((a, i) => (
               <div key={i} className="text-center">
                 <div className="font-cinzel text-3xl font-bold text-gold-gradient mb-2">{a.year}</div>
-                <div className="text-white/80 text-[15px] mb-1">{a.org}</div>
-                <div className="font-cinzel text-[10px] tracking-wider text-[#c9a94b]/70">{a.award}</div>
+                <div className="text-[#1a1a1a]/80 text-[15px] mb-1">{a.org}</div>
+                <div className="font-cinzel text-[10px] tracking-wider text-[#374151]/70">{a.award}</div>
               </div>
             ))}
           </div>

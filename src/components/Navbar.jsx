@@ -38,13 +38,13 @@ export default function Navbar({ activePage, setActivePage }) {
 
           {/* Logo */}
           <button onClick={() => setActivePage('hero')} className="flex items-center gap-3 group">
-            <div className="relative w-11 h-11 shrink-0 border border-[#c9a94b]/35 group-hover:border-[#c9a94b]/70 transition-colors overflow-hidden">
-              <img src="/images/web/hero_01.jpg" alt="彈彈"
+            <div className="relative w-11 h-11 shrink-0 border border-black/20 group-hover:border-black/50 transition-colors overflow-hidden">
+              <img src={`${import.meta.env.BASE_URL}images/web/hero_01.jpg`} alt="彈彈"
                 className="w-full h-full object-cover object-top" />
             </div>
             <div className="leading-none">
               <span className="font-cinzel text-base font-bold text-gold-gradient tracking-widest block">彈彈</span>
-              <span className="font-cinzel text-[10px] tracking-[0.28em] text-white/40 group-hover:text-white/60 transition-colors uppercase block mt-0.5">
+              <span className="font-cinzel text-[10px] tracking-[0.28em] text-[#1a1a1a]/40 group-hover:text-[#1a1a1a]/60 transition-colors uppercase block mt-0.5">
                 Arsene Hsiao
               </span>
             </div>
@@ -56,24 +56,24 @@ export default function Navbar({ activePage, setActivePage }) {
               <button key={link.page} onClick={() => setActivePage(link.page)}
                 className={`font-cinzel text-xs tracking-[0.2em] transition-colors uppercase relative pb-1
                   ${activePage === link.page
-                    ? 'text-[#c9a94b]'
-                    : 'text-white/60 hover:text-[#c9a94b]'
+                    ? 'text-[#1a1a1a]'
+                    : 'text-[#1a1a1a]/55 hover:text-[#1a1a1a]'
                   }`}>
                 {link.label}
                 {activePage === link.page && (
                   <motion.span layoutId="tab-underline"
-                    className="absolute bottom-0 left-0 right-0 h-px bg-[#c9a94b]" />
+                    className="absolute bottom-0 left-0 right-0 h-px bg-[#1a1a1a]" />
                 )}
               </button>
             ))}
             <a href="mailto:dreamarsene@gmail.com"
-              className="font-cinzel ml-2 px-6 py-2.5 text-xs tracking-[0.22em] border border-[#c9a94b]/50 text-[#c9a94b] hover:bg-[#c9a94b] hover:text-black transition-all duration-300 uppercase">
+              className="font-cinzel ml-2 px-6 py-2.5 text-xs tracking-[0.22em] border border-black/35 text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white transition-all duration-300 uppercase">
               Booking
             </a>
           </div>
 
           {/* Mobile */}
-          <button className="md:hidden text-white/60 hover:text-[#c9a94b] transition-colors"
+          <button className="md:hidden text-[#1a1a1a]/55 hover:text-[#1a1a1a] transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -90,7 +90,7 @@ export default function Navbar({ activePage, setActivePage }) {
               <button key={link.page}
                 onClick={() => { setActivePage(link.page); setMenuOpen(false) }}
                 className={`font-cinzel text-base tracking-[0.38em] transition-colors uppercase
-                  ${activePage === link.page ? 'text-[#c9a94b]' : 'text-white/70 hover:text-[#c9a94b]'}`}>
+                  ${activePage === link.page ? 'text-[#1a1a1a]' : 'text-[#1a1a1a]/60 hover:text-[#1a1a1a]'}`}>
                 {link.label}
               </button>
             ))}

@@ -40,7 +40,7 @@ export default function PhotoCarousel({ images = [], aspect = 'aspect-video', in
       <AnimatePresence initial={false} custom={dir} mode="popLayout">
         <motion.img
           key={idx}
-          src={`/images/web/${images[idx]}`}
+          src={`${import.meta.env.BASE_URL}images/web/${images[idx]}`}
           custom={dir}
           variants={variants}
           initial="enter"
@@ -53,7 +53,7 @@ export default function PhotoCarousel({ images = [], aspect = 'aspect-video', in
       </AnimatePresence>
 
       {/* Gradient overlay bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
       {/* Dots */}
       {images.length > 1 && (
@@ -61,7 +61,7 @@ export default function PhotoCarousel({ images = [], aspect = 'aspect-video', in
           {images.map((_, i) => (
             <button key={i} onClick={() => go(i)}
               className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                i === idx ? 'bg-[#c9a94b] scale-125' : 'bg-white/30 hover:bg-white/55'
+                i === idx ? 'bg-[#1a1a1a] scale-125' : 'bg-black/25 hover:bg-black/45'
               }`}
             />
           ))}
@@ -69,7 +69,7 @@ export default function PhotoCarousel({ images = [], aspect = 'aspect-video', in
       )}
 
       {/* Counter */}
-      <div className="absolute top-2.5 right-3 font-cinzel text-[9px] text-white/40 tracking-widest z-10">
+      <div className="absolute top-2.5 right-3 font-cinzel text-[9px] text-black/40 tracking-widest z-10">
         {idx + 1}/{images.length}
       </div>
     </div>

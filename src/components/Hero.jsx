@@ -15,13 +15,13 @@ export default function Hero({ setActivePage }) {
   return (
     <section id="hero" className="relative w-full min-h-[calc(100vh-5rem)] overflow-hidden">
 
-      {/* ── Background (hero_06 very dark) ── */}
+      {/* ── Background (hero_06 faded) ── */}
       <div className="absolute inset-0">
-        <img src="/images/web/hero_06.jpg" alt=""
+        <img src={`${import.meta.env.BASE_URL}images/web/hero_06.jpg`} alt=""
           className="w-full h-full object-cover object-center"
-          style={{ filter: 'brightness(0.14) saturate(0.5)' }} />
+          style={{ filter: 'brightness(0.45) saturate(0.4)' }} />
         <div className="absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse 75% 65% at 55% 40%, rgba(201,169,75,0.07) 0%, rgba(8,8,8,0.5) 55%, rgba(8,8,8,0.97) 100%)' }} />
+          style={{ background: 'radial-gradient(ellipse 75% 65% at 55% 40%, rgba(255,255,255,0) 0%, rgba(255,255,255,0.72) 55%, rgba(255,255,255,0.97) 100%)' }} />
       </div>
 
       <motion.div variants={ctr} initial="hidden" animate="show"
@@ -32,27 +32,27 @@ export default function Hero({ setActivePage }) {
           {/* ═══ LEFT: Photos ═══ */}
           <motion.div variants={up} className="shrink-0 flex flex-col items-center gap-3 w-full lg:w-auto">
 
-            {/* hero_05 — main feature image with gold frame */}
+            {/* hero_05 — main feature image with frame */}
             <div className="relative">
-              {/* Outer glow border */}
-              <div className="absolute -inset-[3px] border border-[#c9a94b]/40" />
-              <div className="absolute -inset-[7px] border border-[#c9a94b]/15" />
+              {/* Outer border */}
+              <div className="absolute -inset-[3px] border border-black/25" />
+              <div className="absolute -inset-[7px] border border-black/10" />
               {/* Image */}
               <div className="relative overflow-hidden" style={{ width: 'clamp(260px, 38vw, 420px)', aspectRatio: '4/3' }}>
-                <img src="/images/web/hero_05.jpg" alt="舞台演出"
+                <img src={`${import.meta.env.BASE_URL}images/web/hero_05.jpg`} alt="舞台演出"
                   className="w-full h-full object-cover"
                   style={{ filter: 'brightness(0.92) contrast(1.08) saturate(1.05)' }} />
-                {/* Dark vignette bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/55 via-transparent to-transparent" />
+                {/* Vignette bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-white/55 via-transparent to-transparent" />
               </div>
-              {/* Gold corner accents */}
+              {/* Corner accents */}
               <span className="frame-corner tl" />
               <span className="frame-corner tr" />
               <span className="frame-corner bl" />
               <span className="frame-corner br" />
               {/* Stage label */}
               <div className="absolute bottom-3 left-4">
-                <span className="font-cinzel text-[9px] tracking-[0.4em] text-[#c9a94b] uppercase opacity-80">
+                <span className="font-cinzel text-[9px] tracking-[0.4em] text-[#374151] uppercase opacity-80">
                   Live Performance
                 </span>
               </div>
@@ -60,9 +60,9 @@ export default function Hero({ setActivePage }) {
 
             {/* hero_01 — portrait below, smaller */}
             <div className="relative">
-              <div className="absolute -inset-[2px] border border-[#c9a94b]/30" />
+              <div className="absolute -inset-[2px] border border-black/18" />
               <div className="overflow-hidden" style={{ width: 'clamp(260px, 38vw, 420px)', height: '90px' }}>
-                <img src="/images/web/hero_01.jpg" alt="彈彈"
+                <img src={`${import.meta.env.BASE_URL}images/web/hero_01.jpg`} alt="彈彈"
                   className="w-full object-cover object-[center_15%]"
                   style={{ filter: 'brightness(0.85) contrast(1.06)' }} />
               </div>
@@ -87,18 +87,18 @@ export default function Hero({ setActivePage }) {
 
             <motion.div variants={fd}
               className="flex items-center gap-3 justify-center lg:justify-start mb-7">
-              <div className="h-px w-8 bg-[#c9a94b]/50" />
-              <span className="text-[#c9a94b]/50 text-sm">✦</span>
-              <div className="h-px w-8 bg-[#c9a94b]/50" />
+              <div className="h-px w-8 bg-black/25" />
+              <span className="text-black/25 text-sm">✦</span>
+              <div className="h-px w-8 bg-black/25" />
             </motion.div>
 
             <motion.blockquote variants={up}
-              className="font-cormorant text-white/75 leading-relaxed italic mb-2"
+              className="font-cormorant text-[#1a1a1a]/75 leading-relaxed italic mb-2"
               style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.5rem)' }}>
               人生這場魔術，要留一點彈性
             </motion.blockquote>
             <motion.p variants={up}
-              className="font-cinzel text-white/30 text-[10px] tracking-[0.32em] uppercase mb-11">
+              className="font-cinzel text-[#1a1a1a]/30 text-[10px] tracking-[0.32em] uppercase mb-11">
               In Life's Magic Play, Keep It Flexible Each Day.
             </motion.p>
 
@@ -106,23 +106,23 @@ export default function Hero({ setActivePage }) {
             <motion.div variants={up}
               className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
               <button onClick={() => setActivePage('experience')}
-                className="font-cinzel px-9 py-3.5 text-[11px] tracking-[0.38em] uppercase bg-[#c9a94b] text-black font-semibold hover:bg-[#e8c96d] transition-all duration-300 hover:shadow-[0_0_28px_rgba(201,169,75,0.45)]">
+                className="font-cinzel px-9 py-3.5 text-[11px] tracking-[0.38em] uppercase bg-[#1a1a1a] text-white font-semibold hover:bg-[#374151] transition-all duration-300 hover:shadow-[0_0_28px_rgba(0,0,0,0.15)]">
                 查看經歷
               </button>
               <button onClick={() => setActivePage('contact')}
-                className="font-cinzel px-9 py-3.5 text-[11px] tracking-[0.38em] uppercase border border-[#c9a94b]/45 text-[#c9a94b]/80 hover:bg-[#c9a94b]/10 hover:border-[#c9a94b] hover:text-[#c9a94b] transition-all duration-300">
+                className="font-cinzel px-9 py-3.5 text-[11px] tracking-[0.38em] uppercase border border-black/35 text-[#1a1a1a]/70 hover:bg-black/5 hover:border-black hover:text-[#1a1a1a] transition-all duration-300">
                 合作洽談
               </button>
             </motion.div>
 
             {/* Stats bar */}
             <motion.div variants={fd}
-              className="grid grid-cols-2 sm:grid-cols-4 border border-[#c9a94b]/20">
+              className="grid grid-cols-2 sm:grid-cols-4 border border-black/10">
               {stats.map((s, i) => (
                 <div key={i}
-                  className="py-5 px-4 text-center border-r border-[#c9a94b]/15 last:border-r-0 hover:bg-[#c9a94b]/6 transition-colors">
+                  className="py-5 px-4 text-center border-r border-black/8 last:border-r-0 hover:bg-black/4 transition-colors">
                   <div className="font-cinzel text-2xl font-bold text-gold-gradient mb-1">{s.num}</div>
-                  <div className="font-cinzel text-[9px] tracking-[0.25em] text-white/55 uppercase">{s.label}</div>
+                  <div className="font-cinzel text-[9px] tracking-[0.25em] text-[#1a1a1a]/55 uppercase">{s.label}</div>
                 </div>
               ))}
             </motion.div>

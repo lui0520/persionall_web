@@ -19,12 +19,12 @@ function Card({ item, index }) {
       initial={{ opacity: 0, y: 36 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16,1,0.3,1] }}
-      className="glass-card p-8 hover:border-[#c9a94b]/45 hover:bg-[#c9a94b]/5 transition-all duration-500 flex flex-col border-[#c9a94b]/22"
+      className="glass-card p-8 hover:border-black/25 hover:bg-black/3 transition-all duration-500 flex flex-col border-black/10"
     >
       <div className="text-3xl mb-5">{item.icon}</div>
-      <h3 className="font-cinzel font-bold text-white text-xs tracking-[0.18em] uppercase mb-1">{item.title}</h3>
-      <p className="font-cormorant text-[#c9a94b] text-xl italic mb-4 leading-snug">{item.titleZh}</p>
-      <p className="text-white/75 text-[15px] leading-relaxed">{item.desc}</p>
+      <h3 className="font-cinzel font-bold text-[#1a1a1a] text-xs tracking-[0.18em] uppercase mb-1">{item.title}</h3>
+      <p className="font-cormorant text-[#374151] text-xl italic mb-4 leading-snug">{item.titleZh}</p>
+      <p className="text-[#1a1a1a]/75 text-[15px] leading-relaxed">{item.desc}</p>
     </motion.div>
   )
 }
@@ -48,7 +48,7 @@ export default function About() {
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-cinzel text-white/40 text-[10px] tracking-[0.35em] uppercase mt-3">
+            className="font-cinzel text-[#1a1a1a]/40 text-[10px] tracking-[0.35em] uppercase mt-3">
             Magician Arsene Hsiao
           </motion.p>
           <div className="gold-divider" />
@@ -62,7 +62,7 @@ export default function About() {
         >
           {/* Carousel */}
           <div className="shrink-0 w-full md:w-80 relative">
-            <div className="absolute -inset-[3px] border border-[#c9a94b]/30 pointer-events-none z-10" />
+            <div className="absolute -inset-[3px] border border-black/15 pointer-events-none z-10" />
             <span className="frame-corner tl z-20" /><span className="frame-corner tr z-20" />
             <span className="frame-corner bl z-20" /><span className="frame-corner br z-20" />
             <PhotoCarousel images={bioPhotos} aspect="aspect-[4/3]" interval={3500} />
@@ -70,13 +70,13 @@ export default function About() {
 
           {/* Bio text */}
           <div className="flex-1">
-            <p className="font-cormorant text-white/80 leading-loose italic mb-4"
+            <p className="font-cormorant text-[#1a1a1a]/80 leading-loose italic mb-4"
               style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)' }}>
               17年魔術生涯，從台灣出發，足跡踏遍拉斯維加斯、香港、澳門、多倫多與雪梨。
               他不僅是魔術師，更是電視節目魔術顧問、幕後舞台總監與原創道具設計師，
               用每一個不可能，詮釋魔術的本質——
             </p>
-            <p className="font-cormorant text-[#c9a94b] italic font-bold leading-snug"
+            <p className="font-cormorant text-[#374151] italic font-bold leading-snug"
               style={{ fontSize: 'clamp(1.3rem, 2.8vw, 1.7rem)' }}>
               「讓人相信奇蹟。」
             </p>
@@ -84,7 +84,7 @@ export default function About() {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#c9a94b]/15">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#e5e7eb]">
           {highlights.map((item, i) => <Card key={i} item={item} index={i} />)}
         </div>
 

@@ -38,7 +38,7 @@ export default function ParticleCanvas() {
         const alpha = this.opacity * (1 - this.life / this.maxLife)
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(201,169,75,${alpha})`
+        ctx.fillStyle = `rgba(45,45,45,${alpha * 0.3})`
         ctx.fill()
       }
     }

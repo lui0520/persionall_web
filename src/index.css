@@ -4,12 +4,12 @@
 
 /* ── Design tokens ── */
 :root {
-  --gold:       #c9a94b;
-  --gold-light: #e8c96d;
-  --gold-dim:   #9a7d35;
-  --ink:        #080808;
-  --surface:    rgba(255,255,255,0.05);
-  --border:     rgba(201,169,75,0.22);
+  --gold:       #1a1a1a;
+  --gold-light: #374151;
+  --gold-dim:   #9ca3af;
+  --ink:        #f5f3ef;
+  --surface:    rgba(0,0,0,0.04);
+  --border:     rgba(0,0,0,0.1);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,7 +18,7 @@ html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background: var(--ink);
-  color: #ede9df;
+  color: #1a1a1a;
   font-family: 'Inter', 'Noto Serif TC', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -31,17 +31,17 @@ body {
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: #080808; }
-::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+::-webkit-scrollbar-track { background: #e8e4dc; }
+::-webkit-scrollbar-thumb { background: #9ca3af; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #374151; }
 
 /* ── Font helpers ── */
 .font-cinzel     { font-family: 'Cinzel', serif; }
 .font-cormorant  { font-family: 'Cormorant Garamond', 'Noto Serif TC', serif; }
 
-/* ── Gold gradient text ── */
+/* ── Dark gradient text ── */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #d4a94b 0%, #f0d060 35%, #fffbe0 55%, #e0b84a 80%, #c9a94b 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #4b5563 40%, #9ca3af 55%, #374151 80%, #1a1a1a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -56,8 +56,8 @@ body {
   font-family: 'Cinzel', serif;
   font-weight: 900;
   background: linear-gradient(90deg,
-    #6b4f1a 0%, #c9a94b 18%, #f5e07a 35%,
-    #fffbe8 50%, #f5e07a 65%, #c9a94b 82%, #6b4f1a 100%);
+    #9ca3af 0%, #374151 18%, #1a1a1a 35%,
+    #4b5563 50%, #1a1a1a 65%, #374151 82%, #9ca3af 100%);
   background-size: 250% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -67,16 +67,18 @@ body {
 
 /* ── Glass surfaces ── */
 .glass-card {
-  background: rgba(255,255,255,0.045);
-  border: 1px solid var(--border);
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
 }
 .glass-nav {
-  background: rgba(6,6,6,0.78);
-  border-bottom: 1px solid rgba(201,169,75,0.14);
+  background: rgba(245,243,239,0.95);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 1px 20px rgba(0,0,0,0.05);
 }
 
 /* ── Particles canvas ── */
@@ -107,7 +109,7 @@ section { position: relative; z-index: 1; width: 100%; }
   font-weight: 600;
   letter-spacing: 0.52em;
   text-transform: uppercase;
-  color: rgba(201,169,75,0.65);
+  color: rgba(26,26,26,0.5);
 }
 
 .section-title {
@@ -116,10 +118,10 @@ section { position: relative; z-index: 1; width: 100%; }
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 1.15;
-  color: #ede9df;
+  color: #1a1a1a;
 }
 
-.section-title.gradient { /* used via class combo */ }
+.section-title.gradient { }
 
 .gold-divider {
   width: 52px; height: 1px;
@@ -127,7 +129,7 @@ section { position: relative; z-index: 1; width: 100%; }
   margin: 1rem auto 0;
 }
 
-/* ── Gold frame corners ── */
+/* ── Frame corners ── */
 .frame-corner { position: absolute; width: 20px; height: 20px; border-color: var(--gold); }
 .frame-corner.tl { top: 0; left: 0;  border-top: 2px solid; border-left: 2px solid; }
 .frame-corner.tr { top: 0; right: 0; border-top: 2px solid; border-right: 2px solid; }
@@ -149,9 +151,9 @@ section { position: relative; z-index: 1; width: 100%; }
 .timeline-stem {
   position: absolute; left: 0; top: 14px; bottom: 0;
   width: 1px;
-  background: linear-gradient(180deg, var(--gold) 0%, rgba(201,169,75,0.15) 100%);
+  background: linear-gradient(180deg, #1a1a1a 0%, rgba(26,26,26,0.15) 100%);
 }
 
 /* ── Gallery scrollbar ── */
 .gallery-scroll::-webkit-scrollbar { height: 2px; }
-.gallery-scroll::-webkit-scrollbar-thumb { background: rgba(201,169,75,0.3); }
+.gallery-scroll::-webkit-scrollbar-thumb { background: rgba(26,26,26,0.2); }

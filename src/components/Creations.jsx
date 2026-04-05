@@ -30,34 +30,34 @@ function CreationCard({ item, index }) {
       initial={{ opacity:0, y:48, scale:0.98 }}
       animate={inView ? { opacity:1, y:0, scale:1 } : {}}
       transition={{ duration:0.8, delay:index*0.1, ease:[0.16,1,0.3,1] }}
-      className={`glass-card overflow-hidden hover:border-[#c9a94b]/50 transition-all duration-500 group ${
-        item.highlight ? 'border-[#c9a94b]/40' : 'border-[#c9a94b]/22'
+      className={`glass-card overflow-hidden hover:border-black/28 transition-all duration-500 group ${
+        item.highlight ? 'border-black/20' : 'border-black/10'
       }`}
     >
       {/* Carousel */}
       <div className="relative">
         <PhotoCarousel images={item.images} aspect="aspect-[16/9]" interval={3400 + index*300} />
         {item.highlight && (
-          <div className="absolute top-3 right-3 z-20 font-cinzel text-[8px] tracking-widest text-[#c9a94b] border border-[#c9a94b]/50 bg-black/65 px-2.5 py-1 uppercase backdrop-blur-sm">
+          <div className="absolute top-3 right-3 z-20 font-cinzel text-[8px] tracking-widest text-[#374151] border border-black/25 bg-white/85 px-2.5 py-1 uppercase backdrop-blur-sm">
             Murphy's Magic
           </div>
         )}
       </div>
 
       <div className="p-7">
-        <div className="font-cinzel text-[#c9a94b]/25 font-bold text-4xl mb-3 leading-none">{item.year}</div>
-        <h3 className="font-cinzel font-bold text-white tracking-wider mb-1"
+        <div className="font-cinzel text-black/12 font-bold text-4xl mb-3 leading-none">{item.year}</div>
+        <h3 className="font-cinzel font-bold text-[#1a1a1a] tracking-wider mb-1"
           style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.1rem)' }}>{item.title}</h3>
-        <p className="font-cormorant text-[#c9a94b] text-xl italic mb-4">{item.titleZh}</p>
-        <p className="text-white/75 text-[15px] leading-relaxed mb-6">{item.desc}</p>
+        <p className="font-cormorant text-[#374151] text-xl italic mb-4">{item.titleZh}</p>
+        <p className="text-[#1a1a1a]/75 text-[15px] leading-relaxed mb-6">{item.desc}</p>
 
         <div className="flex items-center justify-between">
-          <span className="font-cinzel text-[8px] tracking-widest uppercase text-white/38 border border-white/12 px-2.5 py-1">
+          <span className="font-cinzel text-[8px] tracking-widest uppercase text-[#1a1a1a]/38 border border-black/12 px-2.5 py-1">
             {item.tag}
           </span>
           {item.link && (
             <a href={item.link} target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[#c9a94b]/65 hover:text-[#c9a94b] text-xs transition-colors group-hover:text-[#c9a94b]">
+              className="flex items-center gap-1.5 text-[#374151]/65 hover:text-[#1a1a1a] text-xs transition-colors group-hover:text-[#1a1a1a]">
               <span className="font-cinzel text-[9px] tracking-wider">Watch</span>
               <ExternalLink size={11} />
             </a>
@@ -86,12 +86,12 @@ export default function Creations() {
           <div className="gold-divider" />
           <motion.p initial={{ opacity:0 }} animate={inView?{opacity:1}:{}}
             transition={{ duration:0.8, delay:0.3 }}
-            className="font-cormorant text-white/50 text-xl italic mt-8 max-w-xl mx-auto leading-relaxed">
+            className="font-cormorant text-[#1a1a1a]/50 text-xl italic mt-8 max-w-xl mx-auto leading-relaxed">
             「一個好的魔術，簡單的設定以及隱性操作<br/>都『應該』是一個產品必須擁有的。」
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#c9a94b]/15">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e5e7eb]">
           {creations.map((item, i) => <CreationCard key={i} item={item} index={i} />)}
         </div>
 

@@ -28,7 +28,7 @@ export default function App() {
   const ActivePage = pages[activePage]
 
   return (
-    <div className="relative bg-[#080808] min-h-screen overflow-x-hidden">
+    <div className="relative bg-white min-h-screen overflow-x-hidden">
       <ParticleCanvas />
       <Navbar activePage={activePage} setActivePage={setActivePage} />
       <main className="fixed top-20 left-0 right-0 bottom-0 overflow-y-auto">

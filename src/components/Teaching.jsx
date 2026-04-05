@@ -17,10 +17,10 @@ const teachingHistory = [
 ]
 
 const typeStyle = {
-  '學校': 'text-sky-300   border-sky-300/35',
-  '公益': 'text-rose-300  border-rose-300/35',
-  '機構': 'text-amber-300 border-amber-300/35',
-  '講座': 'text-emerald-300 border-emerald-300/35',
+  '學校': 'text-sky-600   border-sky-600/35',
+  '公益': 'text-rose-600  border-rose-600/35',
+  '機構': 'text-amber-600 border-amber-600/35',
+  '講座': 'text-emerald-600 border-emerald-600/35',
 }
 
 const globalRegions = [
@@ -57,7 +57,7 @@ export default function Teaching() {
         <motion.div initial={{ opacity:0 }} whileInView={{ opacity:1 }}
           viewport={{ once:true }} transition={{ duration:0.9 }}
           className="mb-12 relative max-w-2xl mx-auto">
-          <div className="absolute -inset-[3px] border border-[#c9a94b]/28 pointer-events-none z-10" />
+          <div className="absolute -inset-[3px] border border-black/15 pointer-events-none z-10" />
           <span className="frame-corner tl z-20" /><span className="frame-corner tr z-20" />
           <span className="frame-corner bl z-20" /><span className="frame-corner br z-20" />
           <PhotoCarousel images={teachingPhotos} aspect="aspect-[16/7]" interval={2800} />
@@ -71,10 +71,10 @@ export default function Teaching() {
               whileInView={{ opacity:1, x:0 }}
               viewport={{ once:true, margin:'-40px' }}
               transition={{ duration:0.5, delay:i*0.04 }}
-              className="flex items-start gap-5 py-4 border-b border-white/8 group hover:border-[#c9a94b]/25 transition-colors"
+              className="flex items-start gap-5 py-4 border-b border-black/8 group hover:border-black/20 transition-colors"
             >
-              <span className="font-cinzel text-[#c9a94b]/65 font-bold text-xs w-10 shrink-0 pt-0.5 tracking-wide">{item.year}</span>
-              <span className="text-white/78 text-[15px] leading-relaxed flex-1 group-hover:text-white/90 transition-colors">{item.role}</span>
+              <span className="font-cinzel text-[#374151]/65 font-bold text-xs w-10 shrink-0 pt-0.5 tracking-wide">{item.year}</span>
+              <span className="text-[#1a1a1a]/78 text-[15px] leading-relaxed flex-1 group-hover:text-[#1a1a1a] transition-colors">{item.role}</span>
               <span className={`font-cinzel text-[8px] tracking-widest uppercase border px-2 py-0.5 shrink-0 ${typeStyle[item.type]}`}>{item.type}</span>
             </motion.div>
           ))}
@@ -92,25 +92,25 @@ export default function Teaching() {
             <div className="gold-divider" />
             <motion.p initial={{ opacity:0 }} animate={globalInView?{opacity:1}:{}}
               transition={{ duration:0.8, delay:0.3 }}
-              className="font-cormorant text-white/55 text-xl italic mt-5">
+              className="font-cormorant text-[#1a1a1a]/55 text-xl italic mt-5">
               跨越亞、歐、美、大洋洲，豐富的跨國執案經驗
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#c9a94b]/15">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#e5e7eb]">
             {globalRegions.map((r, i) => (
               <motion.div key={i}
                 initial={{ opacity:0, y:36 }} animate={globalInView?{opacity:1,y:0}:{}}
                 transition={{ duration:0.7, delay:i*0.1 }}
-                className="glass-card border-[#c9a94b]/22 p-8 hover:border-[#c9a94b]/48 hover:bg-[#c9a94b]/5 transition-all duration-500"
+                className="glass-card border-black/10 p-8 hover:border-black/25 hover:bg-black/3 transition-all duration-500"
               >
                 <div className="text-3xl mb-4">{r.icon}</div>
-                <h3 className="font-cinzel font-bold text-white text-sm tracking-[0.15em] uppercase mb-1">{r.region}</h3>
-                <p className="font-cormorant text-[#c9a94b] text-xl italic mb-4">{r.regionZh}</p>
+                <h3 className="font-cinzel font-bold text-[#1a1a1a] text-sm tracking-[0.15em] uppercase mb-1">{r.region}</h3>
+                <p className="font-cormorant text-[#374151] text-xl italic mb-4">{r.regionZh}</p>
                 <div className="space-y-2">
                   {r.places.map(p => (
-                    <div key={p} className="flex items-center gap-2.5 text-white/72 text-[15px]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#c9a94b]/55 shrink-0" />{p}
+                    <div key={p} className="flex items-center gap-2.5 text-[#1a1a1a]/72 text-[15px]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-black/30 shrink-0" />{p}
                     </div>
                   ))}
                 </div>
@@ -121,7 +121,7 @@ export default function Teaching() {
           {/* Core services */}
           <motion.div initial={{ opacity:0, y:24 }} animate={globalInView?{opacity:1,y:0}:{}}
             transition={{ duration:0.8, delay:0.45 }}
-            className="mt-px glass-card border-[#c9a94b]/22 p-10 text-center">
+            className="mt-px glass-card border-black/10 p-10 text-center">
             <span className="section-label block mb-8">Core Services</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {[
@@ -131,8 +131,8 @@ export default function Teaching() {
               ].map((s, i) => (
                 <div key={i} className="text-center">
                   <div className="text-3xl mb-4">{s.icon}</div>
-                  <h4 className="font-cinzel text-white font-bold text-xs tracking-[0.18em] uppercase mb-3">{s.title}</h4>
-                  <p className="text-white/65 text-[15px] leading-relaxed">{s.zh}</p>
+                  <h4 className="font-cinzel text-[#1a1a1a] font-bold text-xs tracking-[0.18em] uppercase mb-3">{s.title}</h4>
+                  <p className="text-[#1a1a1a]/65 text-[15px] leading-relaxed">{s.zh}</p>
                 </div>
               ))}
             </div>
