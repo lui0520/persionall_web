@@ -1,134 +1,67 @@
 import { motion } from 'framer-motion'
+import Frame from './Frame'
 
 const ctr = { hidden: {}, show: { transition: { staggerChildren: 0.13 } } }
-const up  = { hidden: { opacity: 0, y: 44 }, show: { opacity: 1, y: 0, transition: { duration: 0.95, ease: [0.16,1,0.3,1] } } }
+const up  = { hidden: { opacity: 0, y: 32 }, show: { opacity: 1, y: 0, transition: { duration: 0.95, ease: [0.16,1,0.3,1] } } }
 const fd  = { hidden: { opacity: 0 },         show: { opacity: 1,  transition: { duration: 1.2 } } }
 
-const stats = [
-  { num: '17+',  label: '年魔術資歷' },
-  { num: '5000+',label: '人公演規模' },
-  { num: '3',    label: '大洲足跡'   },
-  { num: '10+',  label: '國際電視節目' },
-]
 
 export default function Hero({ setActivePage }) {
   return (
-    <section id="hero" className="relative w-full min-h-[calc(100vh-5rem)] overflow-hidden">
-
-      {/* ── Background (hero_06 faded) ── */}
-      <div className="absolute inset-0">
-        <img src={`${import.meta.env.BASE_URL}images/web/hero_06.jpg`} alt=""
-          className="w-full h-full object-cover object-center"
-          style={{ filter: 'brightness(0.45) saturate(0.4)' }} />
-        <div className="absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse 75% 65% at 55% 40%, rgba(255,255,255,0) 0%, rgba(255,255,255,0.72) 55%, rgba(255,255,255,0.97) 100%)' }} />
-      </div>
+    <section id="hero" className="relative w-full min-h-[calc(100vh-5rem)] overflow-hidden bg-white">
 
       <motion.div variants={ctr} initial="hidden" animate="show"
-        className="relative z-10 section-wrap min-h-[calc(100vh-5rem)] flex flex-col justify-center pt-12 pb-16">
+        className="relative z-10 min-h-[calc(100vh-5rem)] flex flex-col lg:flex-row items-center">
 
-        <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20 w-full">
+        {/* ═══ LEFT: Slogan ═══ */}
+        <div className="flex-1 flex flex-col justify-center px-16 md:px-24 lg:px-32 py-20 text-center lg:text-left order-2 lg:order-1">
 
-          {/* ═══ LEFT: Photos ═══ */}
-          <motion.div variants={up} className="shrink-0 flex flex-col items-center gap-3 w-full lg:w-auto">
+          <motion.span variants={up}
+            className="font-cinzel text-[10px] tracking-[0.38em] text-[#1a1a1a]/40 uppercase mb-6 block">
+            Magician · Director · Creator
+          </motion.span>
 
-            {/* hero_05 — main feature image with frame */}
-            <div className="relative">
-              {/* Outer border */}
-              <div className="absolute -inset-[3px] border border-black/25" />
-              <div className="absolute -inset-[7px] border border-black/10" />
-              {/* Image */}
-              <div className="relative overflow-hidden" style={{ width: 'clamp(260px, 38vw, 420px)', aspectRatio: '4/3' }}>
-                <img src={`${import.meta.env.BASE_URL}images/web/hero_05.jpg`} alt="舞台演出"
-                  className="w-full h-full object-cover"
-                  style={{ filter: 'brightness(0.92) contrast(1.08) saturate(1.05)' }} />
-                {/* Vignette bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-white/55 via-transparent to-transparent" />
-              </div>
-              {/* Corner accents */}
-              <span className="frame-corner tl" />
-              <span className="frame-corner tr" />
-              <span className="frame-corner bl" />
-              <span className="frame-corner br" />
-              {/* Stage label */}
-              <div className="absolute bottom-3 left-4">
-                <span className="font-cinzel text-[9px] tracking-[0.4em] text-[#374151] uppercase opacity-80">
-                  Live Performance
-                </span>
-              </div>
-            </div>
+          <motion.h1 variants={up}
+            className="font-cinzel font-bold text-[#1a1a1a] leading-tight mb-4"
+            style={{ fontSize: 'clamp(2.6rem, 6vw, 5rem)' }}>
+            人生就像魔術，<br />需要一點彈性
+          </motion.h1>
 
-            {/* hero_01 — portrait below, smaller */}
-            <div className="relative">
-              <div className="absolute -inset-[2px] border border-black/18" />
-              <div className="overflow-hidden" style={{ width: 'clamp(260px, 38vw, 420px)', height: '90px' }}>
-                <img src={`${import.meta.env.BASE_URL}images/web/hero_01.jpg`} alt="彈彈"
-                  className="w-full object-cover object-[center_15%]"
-                  style={{ filter: 'brightness(0.85) contrast(1.06)' }} />
-              </div>
-              <span className="frame-corner tl" />
-              <span className="frame-corner tr" />
-              <span className="frame-corner bl" />
-              <span className="frame-corner br" />
-            </div>
+          <motion.p variants={up}
+            className="font-cormorant text-[#1a1a1a]/50 italic mb-10"
+            style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}>
+            最具親和力的幽默創作魔術師
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div variants={up}
+            className="flex flex-wrap justify-center lg:justify-start gap-4 mb-14">
+            <button onClick={() => setActivePage('experience')}
+              className="font-cinzel px-10 py-3.5 text-[11px] tracking-[0.38em] uppercase bg-[#1a1a1a] text-white font-semibold rounded-full hover:bg-[#374151] transition-all duration-300">
+              查看經歷
+            </button>
+            <button onClick={() => setActivePage('contact')}
+              className="font-cinzel px-10 py-3.5 text-[11px] tracking-[0.38em] uppercase border border-black/30 text-[#1a1a1a]/70 rounded-full hover:bg-black/5 hover:border-black hover:text-[#1a1a1a] transition-all duration-300">
+              合作洽談
+            </button>
           </motion.div>
 
-          {/* ═══ RIGHT: Typography ═══ */}
-          <div className="flex-1 min-w-0 text-center lg:text-left">
-
-            <motion.span variants={up} className="section-label block mb-5">
-              Magician · Director · Creator
-            </motion.span>
-
-            <motion.h1 variants={up} className="shimmer-text leading-none mb-5"
-              style={{ fontSize: 'clamp(5rem, 13vw, 10rem)', letterSpacing: '0.05em' }}>
-              彈彈
-            </motion.h1>
-
-            <motion.div variants={fd}
-              className="flex items-center gap-3 justify-center lg:justify-start mb-7">
-              <div className="h-px w-8 bg-black/25" />
-              <span className="text-black/25 text-sm">✦</span>
-              <div className="h-px w-8 bg-black/25" />
-            </motion.div>
-
-            <motion.blockquote variants={up}
-              className="font-cormorant text-[#1a1a1a]/75 leading-relaxed italic mb-2"
-              style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.5rem)' }}>
-              人生這場魔術，要留一點彈性
-            </motion.blockquote>
-            <motion.p variants={up}
-              className="font-cinzel text-[#1a1a1a]/30 text-[10px] tracking-[0.32em] uppercase mb-11">
-              In Life's Magic Play, Keep It Flexible Each Day.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div variants={up}
-              className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
-              <button onClick={() => setActivePage('experience')}
-                className="font-cinzel px-9 py-3.5 text-[11px] tracking-[0.38em] uppercase bg-[#1a1a1a] text-white font-semibold hover:bg-[#374151] transition-all duration-300 hover:shadow-[0_0_28px_rgba(0,0,0,0.15)]">
-                查看經歷
-              </button>
-              <button onClick={() => setActivePage('contact')}
-                className="font-cinzel px-9 py-3.5 text-[11px] tracking-[0.38em] uppercase border border-black/35 text-[#1a1a1a]/70 hover:bg-black/5 hover:border-black hover:text-[#1a1a1a] transition-all duration-300">
-                合作洽談
-              </button>
-            </motion.div>
-
-            {/* Stats bar */}
-            <motion.div variants={fd}
-              className="grid grid-cols-2 sm:grid-cols-4 border border-black/10">
-              {stats.map((s, i) => (
-                <div key={i}
-                  className="py-5 px-4 text-center border-r border-black/8 last:border-r-0 hover:bg-black/4 transition-colors">
-                  <div className="font-cinzel text-2xl font-bold text-gold-gradient mb-1">{s.num}</div>
-                  <div className="font-cinzel text-[9px] tracking-[0.25em] text-[#1a1a1a]/55 uppercase">{s.label}</div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
         </div>
+
+        {/* ═══ RIGHT: Image ═══ */}
+        <motion.div variants={fd}
+          className="w-full lg:w-[48%] xl:w-[52%] shrink-0 order-1 lg:order-2">
+          <Frame
+            src={`${import.meta.env.BASE_URL}images/web/hero_05.jpg`}
+            alt="彈彈"
+            width="100%"
+            height="clamp(340px, 100vh, 100vh)"
+            offsetY={-5}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent pointer-events-none" />
+          </Frame>
+        </motion.div>
+
       </motion.div>
 
     </section>
