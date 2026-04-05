@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Cinzel:wght@400;600;700;900&family=Noto+Serif+TC:wght@400;700;900&family=Inter:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+/* ── Design tokens ── */
+:root {
+  --gold:       #c9a94b;
+  --gold-light: #e8c96d;
+  --gold-dim:   #9a7d35;
+  --ink:        #080808;
+  --surface:    rgba(255,255,255,0.05);
+  --border:     rgba(201,169,75,0.22);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+  background: var(--ink);
+  color: #ede9df;
+  font-family: 'Inter', 'Noto Serif TC', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { width: 100%; overflow-x: hidden; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #080808; }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ── Font helpers ── */
+.font-cinzel     { font-family: 'Cinzel', serif; }
+.font-cormorant  { font-family: 'Cormorant Garamond', 'Noto Serif TC', serif; }
+
+/* ── Gold gradient text ── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #d4a94b 0%, #f0d060 35%, #fffbe0 55%, #e0b84a 80%, #c9a94b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Shimmer (hero name) ── */
+@keyframes shimmer {
+  0%   { background-position: -250% center; }
+  100% { background-position:  250% center; }
+}
+.shimmer-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  background: linear-gradient(90deg,
+    #6b4f1a 0%, #c9a94b 18%, #f5e07a 35%,
+    #fffbe8 50%, #f5e07a 65%, #c9a94b 82%, #6b4f1a 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s linear infinite;
+}
+
+/* ── Glass surfaces ── */
+.glass-card {
+  background: rgba(255,255,255,0.045);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.glass-nav {
+  background: rgba(6,6,6,0.78);
+  border-bottom: 1px solid rgba(201,169,75,0.14);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* ── Particles canvas ── */
+#particles-canvas {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: 0;
+}
+
+/* ── Section base ── */
+section { position: relative; z-index: 1; width: 100%; }
+
+/* ── Section container (consistent centering) ── */
+.section-wrap {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 4rem);
+  padding-right: clamp(1.25rem, 4vw, 4rem);
+}
+
+/* ── Section header helpers ── */
+.section-label {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.52em;
+  text-transform: uppercase;
+  color: rgba(201,169,75,0.65);
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  color: #ede9df;
+}
+
+.section-title.gradient { /* used via class combo */ }
+
+.gold-divider {
+  width: 52px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 1rem auto 0;
+}
+
+/* ── Gold frame corners ── */
+.frame-corner { position: absolute; width: 20px; height: 20px; border-color: var(--gold); }
+.frame-corner.tl { top: 0; left: 0;  border-top: 2px solid; border-left: 2px solid; }
+.frame-corner.tr { top: 0; right: 0; border-top: 2px solid; border-right: 2px solid; }
+.frame-corner.bl { bottom: 0; left: 0;  border-bottom: 2px solid; border-left: 2px solid; }
+.frame-corner.br { bottom: 0; right: 0; border-bottom: 2px solid; border-right: 2px solid; }
+
+/* ── Image hover ── */
+.img-hover { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.4s; }
+.img-hover:hover { transform: scale(1.04); filter: brightness(1.1) !important; }
+
+/* ── Float ── */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.float-anim { animation: float 5s ease-in-out infinite; }
+
+/* ── Timeline ── */
+.timeline-stem {
+  position: absolute; left: 0; top: 14px; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold) 0%, rgba(201,169,75,0.15) 100%);
+}
+
+/* ── Gallery scrollbar ── */
+.gallery-scroll::-webkit-scrollbar { height: 2px; }
+.gallery-scroll::-webkit-scrollbar-thumb { background: rgba(201,169,75,0.3); }
