@@ -3,10 +3,10 @@ import { motion, useInView } from 'framer-motion'
 import Frame from './Frame'
 
 const highlights = [
-  { icon: '🌐', title: 'Global Production',   titleZh: '跨國監製實力', desc: '曾任拉斯維加斯、央視、TVB 等數千人公演魔術總監，足跡遍布亞美兩大洲。' },
-  { icon: '🎭', title: 'Charismatic Contrast', titleZh: '幽默反差人格', desc: '顧問級硬核資歷，卻擁有搞笑幽默、極具親和力的表演靈魂。' },
-  { icon: '🧠', title: 'Emotional Insight',    titleZh: '洞察大眾情緒', desc: '與生俱來高親和力，跨足感情諮詢，將細膩觀察融入魔術，用魔術彈走心靈緊繃。' },
-  { icon: '🏆', title: 'Elite Achievements',   titleZh: '頂尖舞台成就', desc: '全台舞台魔術季軍、近景魔術特別獎，多次操盤5000人規模大型售票公演。' },
+  { suit: '♠', suitColor: 'text-[#1a1a1a]', title: 'Global Production',   titleZh: '跨國監製實力', desc: '曾任拉斯維加斯、央視、TVB 等數千人公演魔術總監，足跡遍布亞美兩大洲。' },
+  { suit: '♥', suitColor: 'text-rose-500',   title: 'Charismatic Contrast', titleZh: '幽默反差人格', desc: '顧問級硬核資歷，卻擁有搞笑幽默、極具親和力的表演靈魂。' },
+  { suit: '♦', suitColor: 'text-rose-500',   title: 'Emotional Insight',    titleZh: '洞察大眾情緒', desc: '與生俱來高親和力，跨足感情諮詢，將細膩觀察融入魔術，用魔術彈走心靈緊繃。' },
+  { suit: '♣', suitColor: 'text-[#1a1a1a]', title: 'Elite Achievements',   titleZh: '頂尖舞台成就', desc: '全台舞台魔術季軍、近景魔術特別獎，多次操盤5000人規模大型售票公演。' },
 ]
 
 const timeline = [
@@ -148,26 +148,68 @@ export default function Intro() {
         </div>
       </div>
 
-      {/* ── 四大特色卡片 ── */}
+      {/* ── 四大特色：撲克牌樣式 ── */}
       <div ref={cardsRef} className="py-16 md:py-24 bg-[#fafafa]">
         <div className="section-wrap">
           <motion.div initial={{ opacity: 0 }} animate={cardsInView ? { opacity: 1 } : {}}
-            className="text-center mb-12">
+            className="text-center mb-20">
             <span className="section-label">Core Identity</span>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#e5e7eb]">
+          <div className="flex flex-wrap justify-center gap-8">
             {highlights.map((item, i) => (
               <motion.div key={i}
-                initial={{ opacity: 0, y: 32 }}
-                animate={cardsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="glass-card border-black/10 p-8 hover:border-black/25 hover:bg-black/3 transition-all duration-500">
-                <div className="text-3xl mb-5">{item.icon}</div>
-                <h3 className="font-cinzel font-bold text-[#1a1a1a] text-[9px] tracking-[0.2em] uppercase mb-1">{item.title}</h3>
-                <p className="font-cormorant text-[#374151] text-xl italic mb-4 leading-snug">{item.titleZh}</p>
-                <div className="w-5 h-px bg-black/15 mb-4" />
-                <p className="text-[#1a1a1a]/65 text-[14px] leading-relaxed">{item.desc}</p>
+                initial={{ opacity: 0, y: 40, rotate: -3 }}
+                animate={cardsInView ? { opacity: 1, y: 0, rotate: i % 2 === 0 ? -1.5 : 1.5 } : {}}
+                transition={{ duration: 0.65, delay: i * 0.12, ease: [0.16,1,0.3,1] }}
+                whileHover={{ y: -12, rotate: 0, transition: { duration: 0.25 } }}
+                className="relative bg-white shadow-[0_6px_32px_rgba(0,0,0,0.10)]"
+                style={{ width: 'clamp(180px, 22vw, 220px)', aspectRatio: '2.5/3.5' }}
+              >
+                {/* 外邊框 */}
+                <div className="absolute inset-0 border-2 border-black/15 pointer-events-none" />
+                {/* 內框線 */}
+                <div className="absolute inset-[9px] border border-black/8 pointer-events-none" />
+                {/* 四角花紋 */}
+                {['top-[11px] left-[11px]','top-[11px] right-[11px]','bottom-[11px] left-[11px]','bottom-[11px] right-[11px]'].map((pos, j) => (
+                  <span key={j} className={`absolute ${pos} text-[#1a1a1a]/20 text-[11px] leading-none pointer-events-none`}>✦</span>
+                ))}
+                {/* 四邊中央花紋 */}
+                <span className="absolute top-[11px] left-1/2 -translate-x-1/2 text-[#1a1a1a]/12 text-[10px] pointer-events-none">❖</span>
+                <span className="absolute bottom-[11px] left-1/2 -translate-x-1/2 text-[#1a1a1a]/12 text-[10px] pointer-events-none">❖</span>
+                <span className="absolute left-[11px] top-1/2 -translate-y-1/2 text-[#1a1a1a]/12 text-[10px] pointer-events-none">❖</span>
+                <span className="absolute right-[11px] top-1/2 -translate-y-1/2 text-[#1a1a1a]/12 text-[10px] pointer-events-none">❖</span>
+
+                {/* 左上角 */}
+                <div className="absolute top-4 left-4 text-center leading-none">
+                  <div className={`font-cinzel font-bold text-2xl leading-none ${item.suitColor}`}>A</div>
+                  <div className={`text-xl leading-none mt-1 ${item.suitColor}`}>{item.suit}</div>
+                </div>
+
+                {/* 右下角（倒置） */}
+                <div className="absolute bottom-4 right-4 rotate-180 text-center leading-none">
+                  <div className={`font-cinzel font-bold text-2xl leading-none ${item.suitColor}`}>A</div>
+                  <div className={`text-xl leading-none mt-1 ${item.suitColor}`}>{item.suit}</div>
+                </div>
+
+                {/* 中間內容 */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+                  <div className={`text-4xl mb-3 ${item.suitColor} opacity-20`}>{item.suit}</div>
+                  <h3 className="font-cinzel font-bold text-[#1a1a1a] text-[11px] tracking-[0.2em] uppercase mb-2 leading-relaxed">
+                    {item.title}
+                  </h3>
+                  <p className={`font-cormorant text-2xl italic mb-3 leading-snug ${item.suitColor}`}>
+                    {item.titleZh}
+                  </p>
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="h-px w-5 bg-black/12" />
+                    <span className={`text-[10px] ${item.suitColor} opacity-40`}>{item.suit}</span>
+                    <div className="h-px w-5 bg-black/12" />
+                  </div>
+                  <p className="text-[#1a1a1a]/60 text-[12px] leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
