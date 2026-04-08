@@ -9,6 +9,7 @@ import ServicesPage from './pages/ServicesPage'
 import HighlightsPage from './pages/HighlightsPage'
 import Creations from './components/Creations'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 const pages = {
   hero:       Hero,
@@ -37,6 +38,7 @@ export default function App() {
             transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
           >
             <ActivePage setActivePage={setActivePage} />
+            <Footer setActivePage={setActivePage} activePage={activePage} />
           </motion.div>
         </AnimatePresence>
       </main>
