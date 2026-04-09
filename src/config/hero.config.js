@@ -68,7 +68,7 @@ const heroConfig = {
   // ──────────────────────────────────────────────
   image: {
     /** 圖片檔名（位於 public/images/web/ 資料夾） */
-    file: 'hero_05.jpg',
+    file: 'hero/hero_05.jpg',
 
     /**
      * 相框寬度（佔整個頁面寬度的比例）

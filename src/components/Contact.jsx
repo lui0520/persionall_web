@@ -95,7 +95,7 @@ export default function Contact() {
               <span className="frame-corner tr" style={{ width: 10, height: 10 }} />
               <span className="frame-corner bl" style={{ width: 10, height: 10 }} />
               <span className="frame-corner br" style={{ width: 10, height: 10 }} />
-              <img src={`${import.meta.env.BASE_URL}images/web/hero_01.jpg`} alt="彈彈"
+              <img src={`${import.meta.env.BASE_URL}images/web/hero/hero_01.jpg`} alt="彈彈"
                 className="w-full h-full object-cover object-top" />
             </div>
 

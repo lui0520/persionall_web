@@ -14,25 +14,25 @@ const notableCases = [
     year: '2016',
     title: '拉斯維加斯大型公演',
     desc: '擔任美國拉斯維加斯大型公演魔術總監，操盤逾5000人售票演出。',
-    img: 'infinity_02.jpg',
+    img: 'infinity/infinity_02.jpg',
   },
   {
     year: '2018',
     title: '央視 & TVB 節目顧問',
     desc: '受邀擔任中央電視台、TVB 節目魔術創意顧問，足跡延伸至港澳。',
-    img: 'cctv2018_01.jpg',
+    img: 'cctv2018/cctv2018_01.jpg',
   },
   {
     year: '2020',
     title: '多倫多 & 雪梨跨國演出',
     desc: '跨越加拿大、澳洲兩大城市演出，累積海外觀眾超過萬人。',
-    img: 'agt_04.jpg',
+    img: 'agt/agt_04.jpg',
   },
   {
     year: '2024',
     title: '知名藝人活動合作',
     desc: '與國際知名品牌及藝人長期合作，持續活躍於舞台與電視媒體。',
-    img: 'jaychou_03.jpg',
+    img: 'jaychou/jaychou_03.jpg',
   },
 ]
 

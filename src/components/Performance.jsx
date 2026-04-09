@@ -4,16 +4,16 @@ import PhotoCarousel from './PhotoCarousel'
 
 const categories = [
   { title: 'International TV', titleZh: '國際電視節目', icon: '📺',
-    images: ['agt_09.jpg','tvb2017_10.jpg','shandong_03.jpg','cctv2018_06.jpg','tvb2022_05.jpg','gd2024_05.jpg'],
+    images: ['agt/agt_09.jpg','tvb2017/tvb2017_10.jpg','shandong/shandong_03.jpg','cctv2018/cctv2018_06.jpg','tvb2022/tvb2022_05.jpg','gd2024/gd2024_05.jpg'],
     items: ["NBC America's Got Talent",'TVB 終極街頭魔法王','山東衛視 奇蹟時刻','央視 我們一起上春晚','廣東衛視 灣區春晚','TVB 萬千星輝賀台慶（連續三年）'] },
   { title: 'Major Live Shows', titleZh: '大型售票公演', icon: '🎪',
-    images: ['infinity_02.jpg','infinity_06.jpg','myfaith_01.jpg','myfaith_09.jpg','myfaith_10.jpg'],
+    images: ['infinity/infinity_02.jpg','infinity/infinity_06.jpg','myfaith/myfaith_01.jpg','myfaith/myfaith_09.jpg','myfaith/myfaith_10.jpg'],
     items: ['澳門 5000人 The Infinity（舞台總監）','多倫多 4000人售票公演','拉斯維加斯 1500人售票公演','My Faith 澳門/拉斯維加斯/舊金山巡演'] },
   { title: 'Corporate Events', titleZh: '企業 · 品牌活動', icon: '🏢',
-    images: ['perf_02.jpg','perf_05.jpg','perf_08.jpg','perf_12.jpg','perf_15.jpg','perf_18.jpg'],
+    images: ['perf/perf_02.jpg','perf/perf_05.jpg','perf/perf_08.jpg','perf/perf_12.jpg','perf/perf_15.jpg','perf/perf_18.jpg'],
     items: ['新光三越 出神入化魔術秀（週末個人秀）','IKEA 卡友會演出','7-Eleven 開幕演出','新光銀行 企業活動','亞太朝日 春酒尾牙','玉晶光電 中秋私人晚宴'] },
   { title: 'Special & Charity', titleZh: '公益 · 特殊演出', icon: '❤️',
-    images: ['perf_20.jpg','perf_22.jpg','perf_26.jpg','perf_30.jpg','perf_31.jpg'],
+    images: ['perf/perf_20.jpg','perf/perf_22.jpg','perf/perf_26.jpg','perf/perf_30.jpg','perf/perf_31.jpg'],
     items: ['紅鼻子醫生 信義公益基金會','高雄長庚醫院 川崎症孩童聖誕送暖','亞太影展 TaiWonderful 演出','台北順風社 聖誕晚會','國際獅子會 聖誕晚會嘉賓'] },
 ]
 

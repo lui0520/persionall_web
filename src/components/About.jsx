@@ -6,7 +6,7 @@ export default function About() {
 
       {/* 背景：hero_06 霧化 */}
       <img
-        src={`${import.meta.env.BASE_URL}images/web/hero_06.jpg`}
+        src={`${import.meta.env.BASE_URL}images/web/hero/hero_06.jpg`}
         alt=""
         className="absolute inset-0 w-full h-full object-cover object-center"
         style={{ filter: 'blur(3px) brightness(0.55) saturate(0.5)', transform: 'scale(1.04)' }}

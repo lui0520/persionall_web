@@ -145,7 +145,7 @@ export default function Navbar({ activePage, setActivePage }) {
           {/* Logo */}
           <button onClick={() => go('hero')} className="flex items-center gap-3 group">
             <div className="relative w-11 h-11 shrink-0 border border-black/20 group-hover:border-black/50 transition-colors overflow-hidden">
-              <img src={`${import.meta.env.BASE_URL}images/web/hero_01.jpg`} alt="彈彈"
+              <img src={`${import.meta.env.BASE_URL}images/web/hero/hero_01.jpg`} alt="彈彈"
                 className="w-full h-full object-cover object-top" />
             </div>
             <div className="leading-none">

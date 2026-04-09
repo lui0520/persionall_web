@@ -63,7 +63,7 @@ export default function Intro() {
                 <span className="frame-corner bl z-20" />
                 <span className="frame-corner br z-20" />
                 <Frame
-                  src={`${import.meta.env.BASE_URL}images/web/hero_05.jpg`}
+                  src={`${import.meta.env.BASE_URL}images/web/hero/hero_05.jpg`}
                   alt="彈彈"
                   width="clamp(260px, 30vw, 380px)"
                   height="clamp(320px, 38vw, 480px)"

@@ -2,16 +2,16 @@ import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const shows = [
-  { id:1,  title:'三繩奇術',     en:'Three Rope Mystery',   type:'搭配音樂', desc:'配合音樂，將繩子魔術以有趣方式演示繩子變成多段、還原等各種驚奇效果，讓掌聲不斷。', image:'shows_01.jpg' },
-  { id:2,  title:'撲克牌穿寶特瓶', en:'Card Through Bottle', type:'觀眾互動', desc:'邀請觀眾上台簽名，在眾目睽睽之下把牌穿透入全新飲料的寶特瓶中，視覺衝擊強烈。', image:'shows_02.jpg' },
-  { id:3,  title:'水變形',       en:'Water Transfiguration',type:'觀眾互動', desc:"魔術師拿出一瓶水，就在觀眾眼前搖晃幾下，立刻變成滿是氣泡的汽水。Murphy's Magic 商業道具。", image:'shows_03.jpg', highlight:true },
-  { id:4,  title:'撕報還原',     en:'Torn & Restored',      type:'搭配音樂', desc:'拿出報紙展示每一面，撕開數份後，對著碎片吹口氣，報紙在一瞬間完整還原。', image:'shows_04.jpg' },
-  { id:5,  title:'蛋與袋',       en:'Egg & Bag',            type:'觀眾互動', desc:'邀請觀眾上台，不但能把蛋變不見、出現，最後連觀眾也能把蛋變出來！互動性極強。', image:'shows_05.jpg' },
-  { id:6,  title:'魔幻飛桌',     en:'Floating Table',       type:'搭配音樂', desc:'配合音樂把桌子飄浮起來，與桌子一起共舞，邀請觀眾一同上台體驗漂浮感受。', image:'shows_06.jpg' },
-  { id:7,  title:'可樂預言',     en:'Cola Prediction',      type:'觀眾互動', desc:'拿出三種飲料請觀眾選擇，魔術師不但成功預言，還現場教你怎麼變！', image:'shows_07.jpg' },
-  { id:8,  title:'不可能的轉移', en:'Impossible Transfer',  type:'觀眾互動', desc:'邀請兩位觀眾，拿出全新撲克牌洗亂，一人各拿十張，魔術師隔空移動多張牌。', image:'shows_08.jpg' },
-  { id:9,  title:'小大魔術棒',   en:'Magic Wand',           type:'親子互動', desc:'邀請小朋友上台完成艱難魔術任務，在不斷意外出現後，魔術師終於拿出秘密武器！', image:'shows_09.jpg' },
-  { id:10, title:'奇幻快手魔術', en:'Quick Change',         type:'搭配音樂', desc:'撲克牌、絲巾、棒子等各種物件在魔術師手上消失又出現，不同的變化讓人目不轉睛。', image:'shows_10.jpg' },
+  { id:1,  title:'三繩奇術',     en:'Three Rope Mystery',   type:'搭配音樂', desc:'配合音樂，將繩子魔術以有趣方式演示繩子變成多段、還原等各種驚奇效果，讓掌聲不斷。', image:'shows/shows_01.jpg' },
+  { id:2,  title:'撲克牌穿寶特瓶', en:'Card Through Bottle', type:'觀眾互動', desc:'邀請觀眾上台簽名，在眾目睽睽之下把牌穿透入全新飲料的寶特瓶中，視覺衝擊強烈。', image:'shows/shows_02.jpg' },
+  { id:3,  title:'水變形',       en:'Water Transfiguration',type:'觀眾互動', desc:"魔術師拿出一瓶水，就在觀眾眼前搖晃幾下，立刻變成滿是氣泡的汽水。Murphy's Magic 商業道具。", image:'shows/shows_03.jpg', highlight:true },
+  { id:4,  title:'撕報還原',     en:'Torn & Restored',      type:'搭配音樂', desc:'拿出報紙展示每一面，撕開數份後，對著碎片吹口氣，報紙在一瞬間完整還原。', image:'shows/shows_04.jpg' },
+  { id:5,  title:'蛋與袋',       en:'Egg & Bag',            type:'觀眾互動', desc:'邀請觀眾上台，不但能把蛋變不見、出現，最後連觀眾也能把蛋變出來！互動性極強。', image:'shows/shows_05.jpg' },
+  { id:6,  title:'魔幻飛桌',     en:'Floating Table',       type:'搭配音樂', desc:'配合音樂把桌子飄浮起來，與桌子一起共舞，邀請觀眾一同上台體驗漂浮感受。', image:'shows/shows_06.jpg' },
+  { id:7,  title:'可樂預言',     en:'Cola Prediction',      type:'觀眾互動', desc:'拿出三種飲料請觀眾選擇，魔術師不但成功預言，還現場教你怎麼變！', image:'shows/shows_07.jpg' },
+  { id:8,  title:'不可能的轉移', en:'Impossible Transfer',  type:'觀眾互動', desc:'邀請兩位觀眾，拿出全新撲克牌洗亂，一人各拿十張，魔術師隔空移動多張牌。', image:'shows/shows_08.jpg' },
+  { id:9,  title:'小大魔術棒',   en:'Magic Wand',           type:'親子互動', desc:'邀請小朋友上台完成艱難魔術任務，在不斷意外出現後，魔術師終於拿出秘密武器！', image:'shows/shows_09.jpg' },
+  { id:10, title:'奇幻快手魔術', en:'Quick Change',         type:'搭配音樂', desc:'撲克牌、絲巾、棒子等各種物件在魔術師手上消失又出現，不同的變化讓人目不轉睛。', image:'shows/shows_10.jpg' },
 ]
 
 const typeColor = {
