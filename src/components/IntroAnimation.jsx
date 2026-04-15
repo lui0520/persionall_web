@@ -5,14 +5,14 @@ const PREFIX = '/images/animation/frame-'
 const FPS = 24
 const PARTICLE_DURATION = 550  // ms 粒子爆散時長
 const LOGO_HOLD = 1100          // ms logo 停留時長
-const FADE_OUT = 600            // ms 整體淡出時長
+const FADE_OUT = 300            // ms 整體淡出時長
 
 function buildFrames() {
   return Array.from({ length: FRAME_COUNT }, (_, i) => `${PREFIX}${i}.png`)
 }
 
 /** 從 canvas 採樣有色像素，回傳粒子初始資料 */
-function sampleParticles(canvas, count = 600) {
+function sampleParticles(canvas, count = 1000) {
   const ctx = canvas.getContext('2d')
   const { width, height } = canvas
   const imageData = ctx.getImageData(0, 0, width, height)
@@ -193,7 +193,7 @@ export default function IntroAnimation({ onComplete }) {
           src="/images/animation/logo.png"
           alt="彈彈"
           style={{
-            width: 'clamp(80px, 20vw, 200px)',
+            width: 'clamp(80px, 20vw, 150px)',
             height: 'auto',
             objectFit: 'contain',
           }}
