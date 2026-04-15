@@ -10,6 +10,7 @@ import HighlightsPage from './pages/HighlightsPage'
 import Creations from './components/Creations'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import IntroAnimation from './components/IntroAnimation'
 
 const pages = {
   hero:       Hero,
@@ -22,10 +23,12 @@ const pages = {
 
 export default function App() {
   const [activePage, setActivePage] = useState('hero')
+  const [showIntro, setShowIntro] = useState(true)
   const ActivePage = pages[activePage]
 
   return (
     <div className="relative bg-white min-h-screen overflow-x-hidden">
+      {showIntro && <IntroAnimation onComplete={() => setShowIntro(false)} />}
       <ParticleCanvas />
       <Navbar activePage={activePage} setActivePage={setActivePage} />
       <main className="fixed top-20 left-0 right-0 bottom-0 overflow-y-auto">
