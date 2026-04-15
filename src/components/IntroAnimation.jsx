@@ -193,7 +193,7 @@ export default function IntroAnimation({ onComplete }) {
           src="/images/animation/logo.png"
           alt="彈彈"
           style={{
-            width: 'clamp(160px, 40vw, 400px)',
+            width: 'clamp(80px, 20vw, 200px)',
             height: 'auto',
             objectFit: 'contain',
           }}
