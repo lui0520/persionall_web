@@ -189,32 +189,15 @@ export default function IntroAnimation({ onComplete }) {
         pointerEvents: 'none',
         gap: 0,
       }}>
-        {/* 主標題 */}
-        <div style={{
-          fontFamily: '"Cinzel", serif',
-          fontSize: 'clamp(3.5rem, 12vw, 8rem)',
-          fontWeight: 700,
-          letterSpacing: '0.15em',
-          color: '#fff',
-          lineHeight: 1,
-          textShadow: '0 0 40px rgba(255,215,0,0.35)',
-        }}>彈彈</div>
-
-        {/* 分隔線 */}
-        <div style={{
-          width: '3rem', height: '1px',
-          background: 'rgba(255,255,255,0.3)',
-          margin: '1.2rem 0 1rem',
-        }} />
-
-        {/* 副標 */}
-        <div style={{
-          fontFamily: '"Cinzel", serif',
-          fontSize: 'clamp(0.55rem, 1.8vw, 0.8rem)',
-          letterSpacing: '0.45em',
-          color: 'rgba(255,255,255,0.45)',
-          textTransform: 'uppercase',
-        }}>Arsene Hsiao</div>
+        <img
+          src="/images/animation/logo.png"
+          alt="彈彈"
+          style={{
+            width: 'clamp(160px, 40vw, 400px)',
+            height: 'auto',
+            objectFit: 'contain',
+          }}
+        />
       </div>
 
     </div>
