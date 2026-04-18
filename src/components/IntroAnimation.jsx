@@ -1,43 +1,71 @@
 import { useEffect, useRef, useState } from 'react'
 
-const GIF_DURATION = 1650  // 略早於一個循環（1680ms），捕捉最後一幀
-const FADE_OUT     = 1000
+const FRAME_COUNT = 56
+const PREFIX      = '/images/animation/frame-'
+const FPS         = 24
+const FADE_OUT    = 1000
+
+function buildFrames() {
+  return Array.from({ length: FRAME_COUNT }, (_, i) => `${PREFIX}${i}.png`)
+}
 
 export default function IntroAnimation({ onComplete }) {
-  const gifRef                    = useRef(null)
-  const [frozenSrc, setFrozenSrc] = useState(null)  // 靜態截圖 dataURL
-  const [exiting,   setExiting]   = useState(false)
+  const canvasRef   = useRef(null)
+  const framesRef   = useRef([])
+  const frameIdxRef = useRef(0)
+  const rafRef      = useRef(null)
+  const lastTimeRef = useRef(null)
+  const [exiting, setExiting] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      // 將 GIF 當前幀截成靜態 PNG
-      const gif = gifRef.current
-      let dataURL = null
-      if (gif) {
-        try {
-          const c = document.createElement('canvas')
-          c.width  = gif.naturalWidth  || gif.offsetWidth  || 800
-          c.height = gif.naturalHeight || gif.offsetHeight || 800
-          c.getContext('2d').drawImage(gif, 0, 0, c.width, c.height)
-          dataURL = c.toDataURL('image/png')
-        } catch (_) { /* 同源問題時直接淡出 */ }
+    const urls = buildFrames()
+    let loaded = 0
+
+    const images = urls.map(src => {
+      const img = new Image()
+      img.src = src
+      img.onload  = () => { if (++loaded === FRAME_COUNT) start() }
+      img.onerror = () => { if (++loaded === FRAME_COUNT) start() }
+      return img
+    })
+    framesRef.current = images
+
+    function start() {
+      const canvas = canvasRef.current
+      if (!canvas) return
+      const ctx      = canvas.getContext('2d')
+      const interval = 1000 / FPS
+
+      function draw(ts) {
+        if (!lastTimeRef.current) lastTimeRef.current = ts
+        const elapsed = ts - lastTimeRef.current
+
+        if (elapsed >= interval) {
+          lastTimeRef.current = ts - (elapsed % interval)
+          const idx = frameIdxRef.current
+          const img = framesRef.current[idx]
+          if (img.complete) {
+            canvas.width  = img.naturalWidth  || canvas.offsetWidth
+            canvas.height = img.naturalHeight || canvas.offsetHeight
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+          }
+          frameIdxRef.current = idx + 1
+
+          // 播到最後一幀：canvas 停在該幀，開始淡出
+          if (frameIdxRef.current >= FRAME_COUNT) {
+            setExiting(true)
+            setTimeout(onComplete, FADE_OUT)
+            return
+          }
+        }
+        rafRef.current = requestAnimationFrame(draw)
       }
-      // 同一 render：顯示靜態幀、隱藏 GIF、開始淡出
-      setFrozenSrc(dataURL)
-      setExiting(true)
-      setTimeout(onComplete, FADE_OUT)
-    }, GIF_DURATION)
+      rafRef.current = requestAnimationFrame(draw)
+    }
 
-    return () => clearTimeout(timer)
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current) }
   }, [onComplete])
-
-  const imgStyle = {
-    position: 'absolute', inset: 0,
-    width: '100%', height: '100%',
-    objectFit: 'contain',
-    transform: 'translateX(5%)',
-    pointerEvents: 'none',
-  }
 
   return (
     <div style={{
@@ -45,21 +73,19 @@ export default function IntroAnimation({ onComplete }) {
       top: '5rem', left: 0, right: 0, bottom: 0,
       zIndex: 9999,
       background: '#fff',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
       opacity: exiting ? 0 : 1,
       transition: `opacity ${FADE_OUT}ms ease-in`,
       pointerEvents: exiting ? 'none' : 'auto',
     }}>
-      {/* 動畫 GIF：凍結後立即隱藏 */}
-      <img
-        ref={gifRef}
-        src="/images/animation/animation_clean.gif"
-        alt=""
-        style={{ ...imgStyle, opacity: frozenSrc ? 0 : 1 }}
+      <canvas
+        ref={canvasRef}
+        style={{
+          width: '100%', height: '100%',
+          objectFit: 'contain',
+          transform: 'translateX(5%)',
+        }}
       />
-      {/* 凍結幀：蓋在 GIF 上，讓淡出期間畫面靜止 */}
-      {frozenSrc && (
-        <img src={frozenSrc} alt="" style={imgStyle} />
-      )}
     </div>
   )
 }
