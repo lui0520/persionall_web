@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-const GIF_DURATION = 2500  // ms — 調整此值以符合 GIF 實際時長
-const FADE_OUT     = 600
+const GIF_DURATION = 1680  // 56 frames × 30ms = 一次完整播放
+const FADE_OUT     = 1000  // 稍慢的淡出
 
 export default function IntroAnimation({ onComplete }) {
   const [exiting, setExiting] = useState(false)
@@ -16,11 +16,14 @@ export default function IntroAnimation({ onComplete }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: 0, zIndex: 9999,
-      background: '#000',
+      position: 'fixed',
+      top: '5rem',        // 不遮住 Navbar（Navbar 高度 = 5rem / 80px）
+      left: 0, right: 0, bottom: 0,
+      zIndex: 9999,
+      background: '#fff',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       opacity: exiting ? 0 : 1,
-      transition: `opacity ${FADE_OUT}ms ease`,
+      transition: `opacity ${FADE_OUT}ms ease-in`,
       pointerEvents: exiting ? 'none' : 'auto',
     }}>
       <img
